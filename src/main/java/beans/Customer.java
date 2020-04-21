@@ -2,7 +2,7 @@ package beans;
 
 import java.util.List;
 
-public class Custonmer {
+public class Customer {
 
 
 
@@ -20,8 +20,8 @@ public class Custonmer {
 
 
 
-    public Custonmer(int id, String firstName, String lastName, String email, String password,
-                     List<Coupon> coupons) {
+    public Customer(int id, String firstName, String lastName, String email, String password,
+                    List<Coupon> coupons) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -80,7 +80,7 @@ public class Custonmer {
 
     @Override
     public String toString() {
-        return "Custonmer{" +
+        return "Customer{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

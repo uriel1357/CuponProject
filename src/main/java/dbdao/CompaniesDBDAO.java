@@ -7,6 +7,7 @@ import exceptions.AlreadyExistsException;
 import exceptions.NotExistsException;
 import pool.ConnetionPool;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,7 +26,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public Company addCompany(Company company) throws AlreadyExistsException {
+    public Company addCompany(Company company){
         if(company==null){
             return null;
         }
@@ -36,7 +37,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public Company updateCompany(Company company) throws NotExistsException {
+    public Company updateCompany(Company company) {
         return null;
     }
 
@@ -46,12 +47,17 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public List<Company> getAllCompanies() {
+    public ArrayList<Company>    getAllCompanies() {
         return null;
     }
 
     @Override
-    public Company getOneCompany(int companyID) throws NotExistsException {
+    public Company getOneCompany(int companyID)  {
+        return null;
+    }
+
+    @Override
+    public Company getOneCompany(String email, String password) {
         return null;
     }
 }
