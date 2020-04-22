@@ -49,7 +49,7 @@ public class AdminFacade extends ClientFacade{
         ArrayList<Coupon> companyCoupons = this.cuponsDAO.getCompanyCoupons(companyID);
         for(Coupon coupon : companyCoupons){
             this.cuponsDAO.deleteCoupon(coupon.getId());
-            this.cuponsDAO.deleteCouponPurchace(coupon.getId());
+            this.cuponsDAO.deleteCouponPurchaces(coupon.getId());
         }
         this.companiesDAO.deleteCompany(companyID);
 

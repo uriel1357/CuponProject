@@ -5,6 +5,7 @@ import beans.Coupon;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public interface CuponsDAO {
 
@@ -27,6 +28,8 @@ public interface CuponsDAO {
     ArrayList<Coupon> getCompanyCouponsByMaxPrice(int companyID, double price);
 
     ArrayList<Coupon> getCustomerCouponsByMaxPrice(int customerID, double price);
+
+    ArrayList<Coupon> getExpiredCoupons(Date expiredDate);
 
     Coupon getOneCoupon(int couponID);
 

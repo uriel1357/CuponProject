@@ -42,7 +42,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public Company deleteCompany(int companyID) throws NotExistsException {
+    public Company deleteCompany(int companyID) {
         return null;
     }
 

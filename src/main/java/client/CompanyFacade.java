@@ -12,13 +12,16 @@ public class CompanyFacade extends ClientFacade {
     private int companyID;
 
 
-    public CompanyFacade(int companyID) {
-        this.companyID = companyID;
+    public CompanyFacade() {
     }
 
     @Override
     public boolean login(String email, String password) {
-        return this.companiesDAO.isCompanyExists(email, password);
+        boolean isCompanyExists = this.companiesDAO.isCompanyExists(email, password);
+        if(isCompanyExists){
+            this.companyID = this.companiesDAO.getOneCompany(email, password).getId();
+        }
+        return isCompanyExists;
     }
 
     public void addCoupon(Coupon coupon) throws CouponActionllegalException {

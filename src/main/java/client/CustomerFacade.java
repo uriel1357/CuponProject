@@ -12,13 +12,16 @@ public class CustomerFacade extends ClientFacade{
 
     private int customerID;
 
-    public CustomerFacade (int customerID){
-        this.customerID = customerID;
+    public CustomerFacade (){
     }
 
     @Override
     public boolean login(String email, String password)  {
-        return this.customersDAO.isCustomerExists(email, password);
+        boolean isCustomerExists =  this.customersDAO.isCustomerExists(email, password);
+        if(isCustomerExists){
+            this.customerID = this.customersDAO.getOneCustomer(email).getId();
+        }
+        return isCustomerExists;
     }
 
     public void purchaceCoupon(Coupon coupon) throws CouponActionllegalException{

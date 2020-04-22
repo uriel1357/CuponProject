@@ -39,7 +39,7 @@ public class CustomersDBDAO implements CustomersDAO {
     }
 
     @Override
-    public boolean isCustomerExists(String email) {
-        return false;
+    public Customer getOneCustomer(String email) {
+        return null;
     }
 }
