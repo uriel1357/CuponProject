@@ -2,6 +2,7 @@ package dbdao;
 
 
 import beans.Company;
+import beans.Customer;
 import dao.CompaniesDAO;
 import pool.ConnetionPool;
 
@@ -9,7 +10,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -30,8 +30,8 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement("select count(*) from COMPANIES where email = ? and password = ?")) {
-            preparedStatement.setString(1 , email);
-            preparedStatement.setString(2 , password);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -47,33 +47,115 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
     @Override
     public Company addCompany(Company company) {
-        if (company == null) {
-            return null;
-        }
+        ConnetionPool pool = connetionPool.getInstance();
 
-        String sql = "INSERT INTO COMPANIES(NAME, EMAIL, PASSWORD) VALUES(?, ?, ?)";
-//        Connection connection = connetionPool;
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("INSERT INTO  coupons.COMPANIES (id,name,email,password ) " +
+                        "VALUES (?,?,?,?)")) {
+            preparedStatement.setInt(1, company.getId());
+            preparedStatement.setString(2, company.getName());
+            preparedStatement.setString(3, company.getEmail());
+            preparedStatement.setString(4, company.getPassword());
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return company;
     }
 
     @Override
     public Company updateCompany(Company company) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("UPDATE   coupons.COMPANIES set email =? and password = ?")) {
+            preparedStatement.setString(1, company.getEmail());
+            preparedStatement.setString(2, company.getPassword());
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
     }
 
     @Override
-    public Company deleteCompany(int companyID) {
-        return null;
-    }
+    public void deleteCompany(int companyID) {
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("DELETE FROM  coupon.COMPANIES where id = ?")) {
+            preparedStatement.setInt(1, companyID);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        }
 
     @Override
     public ArrayList<Company> getAllCompanies() {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        ArrayList<Company> companies = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from coupons.COMPANIES")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Company company = null;
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                company =  new Company(id, name,email,password,null);
+                companies.add(company);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return companies;
     }
 
     @Override
     public Company getOneCompany(int companyID) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        Company company = null;
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from coupons.COMPANIES where id =?")) {
+            preparedStatement.setInt(1, companyID);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                company = new Company(id, name,email,password,null);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
+
     }
 
     @Override

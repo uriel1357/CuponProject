@@ -40,6 +40,11 @@ public class Coupon {
         this.image = image;
     }
 
+    public Coupon(int id) {
+        this.id = id;
+    }
+
+
 
     public int getId() {
         return id;

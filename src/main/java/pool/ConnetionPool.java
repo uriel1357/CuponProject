@@ -19,9 +19,10 @@ public class ConnetionPool {
         connections = new HashSet<Connection>();
         IntStream.range(0, MAX_CONNECTION).forEach((i -> {
             try {
+                Class.forName("com.mysql.jdbc.Driver");
                 connections.add(DriverManager.getConnection("jdbc:mysql://localhost:3306/coupons" + "?user=root" +
-                        "&password=root"));
-            } catch (SQLException e) {
+                        "&password=MyNewPassword"));
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }));

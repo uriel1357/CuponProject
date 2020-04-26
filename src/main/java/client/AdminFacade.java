@@ -3,6 +3,9 @@ package client;
 import beans.Company;
 import beans.Coupon;
 import beans.Customer;
+import dao.CuponsDBDAO;
+import dbdao.CompaniesDBDAO;
+import dbdao.CustomersDBDAO;
 import exceptions.*;
 
 import java.util.ArrayList;
@@ -10,6 +13,9 @@ import java.util.ArrayList;
 public class AdminFacade extends ClientFacade{
 
     public AdminFacade(){
+        this.companiesDAO = new CompaniesDBDAO();
+        this.cuponsDAO = new CuponsDBDAO();
+        this.customersDAO = new CustomersDBDAO();
 
     }
 
@@ -30,12 +36,11 @@ public class AdminFacade extends ClientFacade{
     }
 
     public void updateCompany(Company company) throws CompanyNotExistsException, CompanyUpdateIllegalException{
-        boolean isExistsComapny = this.companiesDAO.isCompanyExists(company.getEmail(), company.getPassword());
-        if (!isExistsComapny) {
-            throw new CompanyNotExistsException("Company with this id not exists , id -" + company.getId());
+        Company companyDB = this.companiesDAO.getOneCompany(company.getId());
+        if (companyDB == null ) {
+            throw new CompanyUpdateIllegalException("Must not update company code or name , id -" + company.getId());
         }
-        Company companyDB = this.companiesDAO.getOneCompany(company.getEmail(), company.getPassword());
-        if(companyDB.getId() != company.getId() || !company.getName().equals(companyDB.getName())){
+        if(!company.getName().equals(companyDB.getName())){
             throw new CompanyUpdateIllegalException("Must not update company code or name");
         }
 

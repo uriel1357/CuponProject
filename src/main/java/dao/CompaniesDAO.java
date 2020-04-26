@@ -15,13 +15,12 @@ public interface CompaniesDAO {
 
     Company updateCompany(Company company);
 
-    Company deleteCompany(int companyID);
+    void deleteCompany(int companyID);
 
     ArrayList<Company> getAllCompanies();
 
     Company getOneCompany(int companyID);
 
     Company getOneCompany(String email, String password);
-
 
 }

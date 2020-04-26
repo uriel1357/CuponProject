@@ -10,6 +10,9 @@ import client.CustomerFacade;
 import manager.ClientType;
 import manager.LoginManager;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
@@ -17,10 +20,16 @@ import java.util.List;
 public class Test {
 
     public static void  testAll(){
+
+        CouponsExpirationDailyJob job = new CouponsExpirationDailyJob(300);
+
         try {
 
-            CouponsExpirationDailyJob job = new CouponsExpirationDailyJob(300);
-            job.run();
+            Coupon expiredCoupon = new Coupon(1, 1, Category.FOOD, "title", "description", new Date(1), new Date(2),1,1d,"image");
+            List<Coupon> expiredCouponList = new ArrayList<>();
+            expiredCouponList.add(expiredCoupon);
+
+//            job.run();
 
             // admin
             AdminFacade adminFacade = (AdminFacade)LoginManager.getInstance().login("admin", "admin", ClientType.ADMINISTRATOR);
@@ -50,6 +59,7 @@ public class Test {
             job.stop();
         }
         catch (Exception e){
+            job.stop();
 
         }
     }

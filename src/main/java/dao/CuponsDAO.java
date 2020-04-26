@@ -5,7 +5,7 @@ import beans.Coupon;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 
 public interface CuponsDAO {
 

@@ -4,14 +4,10 @@ import beans.Category;
 import beans.Coupon;
 import pool.ConnetionPool;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class CuponsDBDAO implements CuponsDAO{
+public class CuponsDBDAO implements CuponsDAO {
 
     private ConnetionPool connetionPool;
 
@@ -19,25 +15,6 @@ public class CuponsDBDAO implements CuponsDAO{
         connetionPool = ConnetionPool.getInstance();
     }
 
-//    private int id;
-//
-//    private int companyID;
-//
-//    private Category category;
-//
-//    private String title;
-//
-//    private String description;
-//
-//    private Date startDate;
-//
-//    private Date endDate;
-//
-//    private int amount;
-//
-//    private double price;
-//
-//    private String image;
     @Override
     public void addCupon(Coupon coupon) {
         ConnetionPool pool = connetionPool.getInstance();
@@ -45,18 +22,18 @@ public class CuponsDBDAO implements CuponsDAO{
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("INSERT INTO  COUPON (id,companyID,category,title,description,startDate,endDate,amount, price, image ) " +
+                ("INSERT INTO  coupons.COUPON (id,companyID,category,title,description,startDate,endDate,amount, price, image ) " +
                         "VALUES (?,?,?,?,?,?,?,?,?,?)")) {
-            preparedStatement.setInt(1 , coupon.getId());
-            preparedStatement.setInt(2 , coupon.getCompanyID());
-            preparedStatement.setString(3 , coupon.getCategory().name());
-            preparedStatement.setString(4 , coupon.getTitle());
-            preparedStatement.setString(5 , coupon.getDescription());
-            preparedStatement.setDate(6 , coupon.getStartDate());
-            preparedStatement.setDate(7 , coupon.getEndDate());
-            preparedStatement.setInt(8 , coupon.getAmount());
-            preparedStatement.setDouble(9 , coupon.getPrice());
-            preparedStatement.setString(10 , coupon.getImage());
+            preparedStatement.setInt(1, coupon.getId());
+            preparedStatement.setInt(2, coupon.getCompanyID());
+            preparedStatement.setString(3, coupon.getCategory().name());
+            preparedStatement.setString(4, coupon.getTitle());
+            preparedStatement.setString(5, coupon.getDescription());
+            preparedStatement.setDate(6, coupon.getStartDate());
+            preparedStatement.setDate(7, coupon.getEndDate());
+            preparedStatement.setInt(8, coupon.getAmount());
+            preparedStatement.setDouble(9, coupon.getPrice());
+            preparedStatement.setString(10, coupon.getImage());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -143,6 +120,27 @@ public class CuponsDBDAO implements CuponsDAO{
 
     @Override
     public ArrayList<Coupon> getExpiredCoupons(Date expiredDate) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> expiredCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT id from  coupons.COUPON where end_date > ?")) {
+            preparedStatement.setDate(1, expiredDate);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Coupon coupon = null;
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                Coupon coupon1 = new Coupon(id);
+                expiredCoupons.add(coupon1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return expiredCoupons;
     }
 }

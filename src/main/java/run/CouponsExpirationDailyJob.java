@@ -2,9 +2,10 @@ package run;
 
 import beans.Coupon;
 import dao.CuponsDAO;
+import dao.CuponsDBDAO;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CouponsExpirationDailyJob implements Runnable {
@@ -21,13 +22,14 @@ public class CouponsExpirationDailyJob implements Runnable {
         this.interval = interval;
         worker = new Thread(this);
         worker.start();
+        this.cuponsDAO = new CuponsDBDAO();
     }
 
     public void run() {
         running.set(true);
         while (running.get()) {
             try {
-                ArrayList<Coupon> expiredCoupons = this.cuponsDAO.getExpiredCoupons(new Date());
+                ArrayList<Coupon> expiredCoupons = this.cuponsDAO.getExpiredCoupons(new Date(System.currentTimeMillis()));
                 for (Coupon coupon : expiredCoupons){
                     this.cuponsDAO.deleteCouponPurchaces(coupon.getId());
                     this.cuponsDAO.deleteCoupon(coupon.getId());
