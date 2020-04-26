@@ -30,7 +30,7 @@ public class CouponsExpirationDailyJob implements Runnable {
                 ArrayList<Coupon> expiredCoupons = this.cuponsDAO.getExpiredCoupons(new Date());
                 for (Coupon coupon : expiredCoupons){
                     this.cuponsDAO.deleteCouponPurchaces(coupon.getId());
-                    this.cuponsDAO.de
+                    this.cuponsDAO.deleteCoupon(coupon.getId());
                 }
                 Thread.sleep(interval);
             } catch (InterruptedException e) {

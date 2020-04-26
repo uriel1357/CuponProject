@@ -1,33 +1,29 @@
 package beans;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Coupon {
 
 
+    private int id;
 
-private int id;
+    private int companyID;
 
-private int companyID;
+    private Category category;
 
-private Category category;
+    private String title;
 
-private String title;
+    private String description;
 
-private String description;
+    private Date startDate;
 
-private Date startDate;
+    private Date endDate;
 
-private Date endDate;
+    private int amount;
 
-private int amount;
+    private double price;
 
-private double price;
-
-private String image;
-
-
-
+    private String image;
 
 
     public Coupon(int id, int companyID, Category category, String title, String description,
@@ -43,7 +39,6 @@ private String image;
         this.price = price;
         this.image = image;
     }
-
 
 
     public int getId() {

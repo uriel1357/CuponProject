@@ -20,8 +20,7 @@ public class ConnetionPool {
         IntStream.range(0, MAX_CONNECTION).forEach((i -> {
             try {
                 connections.add(DriverManager.getConnection("jdbc:mysql://localhost:3306/coupons" + "?user=root" +
-                        "&password=root" + "&useUnicode=true" + "&useJDBCCompliantTimezoneShift=true" +
-                        "&useLegacyDatetimeCode=false" + "&serverTimezone=UTC"));
+                        "&password=root"));
             } catch (SQLException e) {
                 e.printStackTrace();
             }

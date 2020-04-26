@@ -9,5 +9,13 @@
         <module name="cuponProject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cuponProject" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cuponProject" options="-Xlint:all" />
+    </option>
   </component>
 </project>

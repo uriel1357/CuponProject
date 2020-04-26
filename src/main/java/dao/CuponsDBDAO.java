@@ -2,14 +2,67 @@ package dao;
 
 import beans.Category;
 import beans.Coupon;
+import pool.ConnetionPool;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CuponsDBDAO implements CuponsDAO{
 
+    private ConnetionPool connetionPool;
+
+    public CuponsDBDAO() {
+        connetionPool = ConnetionPool.getInstance();
+    }
+
+//    private int id;
+//
+//    private int companyID;
+//
+//    private Category category;
+//
+//    private String title;
+//
+//    private String description;
+//
+//    private Date startDate;
+//
+//    private Date endDate;
+//
+//    private int amount;
+//
+//    private double price;
+//
+//    private String image;
     @Override
     public void addCupon(Coupon coupon) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("INSERT INTO  COUPON (id,companyID,category,title,description,startDate,endDate,amount, price, image ) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?)")) {
+            preparedStatement.setInt(1 , coupon.getId());
+            preparedStatement.setInt(2 , coupon.getCompanyID());
+            preparedStatement.setString(3 , coupon.getCategory().name());
+            preparedStatement.setString(4 , coupon.getTitle());
+            preparedStatement.setString(5 , coupon.getDescription());
+            preparedStatement.setDate(6 , coupon.getStartDate());
+            preparedStatement.setDate(7 , coupon.getEndDate());
+            preparedStatement.setInt(8 , coupon.getAmount());
+            preparedStatement.setDouble(9 , coupon.getPrice());
+            preparedStatement.setString(10 , coupon.getImage());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -85,6 +138,11 @@ public class CuponsDBDAO implements CuponsDAO{
 
     @Override
     public ArrayList<Coupon> getCustomerCouponsByMaxPrice(int companyID, double price) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Coupon> getExpiredCoupons(Date expiredDate) {
         return null;
     }
 }
