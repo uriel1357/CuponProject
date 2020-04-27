@@ -7,6 +7,8 @@ import beans.Customer;
 import client.AdminFacade;
 import client.ClientFacade;
 import client.CustomerFacade;
+import dao.SchemaDAO;
+import dbdao.SchemaDBDAO;
 import manager.ClientType;
 import manager.LoginManager;
 
@@ -18,9 +20,11 @@ import java.sql.Date;
 import java.util.List;
 
 public class Test {
+    private static SchemaDBDAO schemaDBDAO = new SchemaDBDAO();
 
     public static void  testAll(){
 
+//        schemaDBDAO.rebuild();
         CouponsExpirationDailyJob job = new CouponsExpirationDailyJob(300);
 
         try {
@@ -53,6 +57,10 @@ public class Test {
 
             //
             CustomerFacade customerFacade = (CustomerFacade)LoginManager.getInstance().login("email@gmail.com", "pass", ClientType.CUSTOMER);
+            customerFacade.getCustomerDetails();
+            ArrayList<Coupon> customerMaxPriceCoupons = customerFacade.getCustomerCoupons(1d);
+            ArrayList<Coupon> customerCategoryCoupons = customerFacade.getCustomerCoupons(Category.VACATION);
+            ArrayList<Coupon> customerCoupons = customerFacade.getCustomerCoupons();
 
 
 

@@ -8,8 +8,6 @@ public interface CustomersDAO {
 
     boolean isCustomerExists(String email, String password);
 
-    Customer getOneCustomer(String email);
-
     void addCustomer(Customer customer);
 
     void updateCustomer(Customer customer);
@@ -19,4 +17,6 @@ public interface CustomersDAO {
     ArrayList<Customer> getAllCustomers();
 
     Customer getOneCustomer(int customerID);
+
+    Customer getOneCustomer(String email);
 }

@@ -78,8 +78,8 @@ public class AdminFacade extends ClientFacade{
     }
 
     public void updateCustomer(Customer customer) throws CustomerUpdateIllegalException{
-        Customer customer1 = this.customersDAO.getOneCustomer(customer.getEmail());
-        if(customer.getId() != customer1.getId()){
+        Customer customer1 = this.customersDAO.getOneCustomer(customer.getId());
+        if(customer1 == null){
             throw new CustomerUpdateIllegalException("Illegal to update customer ID");
         }
         this.customersDAO.updateCustomer(customer);

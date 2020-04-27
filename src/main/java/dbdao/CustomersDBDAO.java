@@ -48,6 +48,9 @@ public class CustomersDBDAO implements CustomersDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
         return customers;
     }
 
@@ -83,11 +86,16 @@ public class CustomersDBDAO implements CustomersDAO {
                 String firstName= resultSet.getString("firstName");
                 String lastName= resultSet.getString("lastName");
                 String password = resultSet.getString("password");
+                String email= resultSet.getString("email");
+
                 customer =  new Customer(id,firstName,lastName,email,password,null);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
         }
         return customer;
     }
@@ -117,21 +125,92 @@ public class CustomersDBDAO implements CustomersDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
 
     }
 
     @Override
     public boolean isCustomerExists(String email, String password) {
-        return false;
+            boolean isCustomerExists = false;
+            ConnetionPool pool = connetionPool.getInstance();
+
+            Connection connection = pool.getConnection();
+
+            try (PreparedStatement preparedStatement = connection.prepareStatement("select count(*) from coupons.CUSTOMERS where email = ? and password = ?")) {
+                preparedStatement.setString(1, email);
+                preparedStatement.setString(2, password);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    int id = resultSet.getInt(1);
+                    isCustomerExists = id > 0;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally {
+                this.connetionPool.returnConnection(connection);
+            }
+            return isCustomerExists;
     }
 
     @Override
     public void updateCustomer(Customer customer) {
 
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("UPDATE   coupons.CUSTOMERS set email =? , password = ?,firstName = ? , lastName = ? ")) {
+            preparedStatement.setString(1, customer.getEmail());
+            preparedStatement.setString(2, customer.getPassword());
+            preparedStatement.setString(3, customer.getFirstName());
+            preparedStatement.setString(4, customer.getLastName());
+
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public Customer getOneCustomer(String email) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        Customer customer = null;
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from coupons.CUSTOMERS where email = ?")) {
+            preparedStatement.setString(1 , email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()) {
+
+                int id= resultSet.getInt("id");
+                String firstName= resultSet.getString("firstName");
+                String lastName= resultSet.getString("lastName");
+                String password = resultSet.getString("password");
+                customer =  new Customer(id,firstName,lastName,email,password,null);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return customer;
     }
+
 }

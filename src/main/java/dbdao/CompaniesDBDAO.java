@@ -2,7 +2,6 @@ package dbdao;
 
 
 import beans.Company;
-import beans.Customer;
 import dao.CompaniesDAO;
 import pool.ConnetionPool;
 
@@ -42,6 +41,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
         return isCompanyExists;
     }
 
@@ -64,6 +66,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
         return company;
     }
 
@@ -74,7 +79,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("UPDATE   coupons.COMPANIES set email =? and password = ?")) {
+                ("UPDATE   coupons.COMPANIES set email =? , password = ?")) {
             preparedStatement.setString(1, company.getEmail());
             preparedStatement.setString(2, company.getPassword());
 
@@ -82,6 +87,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
         }
         return company;
     }
@@ -93,7 +101,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("DELETE FROM  coupon.COMPANIES where id = ?")) {
+                ("DELETE FROM  coupons.COMPANIES where id = ?")) {
             preparedStatement.setInt(1, companyID);
 
             preparedStatement.execute();
@@ -101,7 +109,10 @@ public class CompaniesDBDAO implements CompaniesDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            this.connetionPool.returnConnection(connection);
         }
+    }
 
     @Override
     public ArrayList<Company> getAllCompanies() {
@@ -126,6 +137,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
         }
         return companies;
     }
@@ -153,6 +167,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
         }
         return company;
 

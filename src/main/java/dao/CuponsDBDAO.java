@@ -40,6 +40,9 @@ public class CuponsDBDAO implements CuponsDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
@@ -49,73 +52,382 @@ public class CuponsDBDAO implements CuponsDAO {
 
     @Override
     public void deleteCoupon(int couponID) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("DELETE FROM  coupon.COUPON where id = ?")) {
+            preparedStatement.setInt(1, couponID);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
+
 
     @Override
     public ArrayList<Coupon> getAllCoupons() {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> coupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT coupon.* from  coupons.COUPON coupon ")) {
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            buildCoupon(coupons, resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return coupons;
     }
 
     @Override
     public Coupon getOneCoupon(int couponID) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        Coupon coupon = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT id from  coupons.COUPON where id = ?")) {
+            preparedStatement.setInt(1, couponID);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int company_id = resultSet.getInt("company_id");
+                int category_id = resultSet.getInt("category_id");
+                String title = resultSet.getString("title");
+                String description = resultSet.getString("description");
+                Date startDate = resultSet.getDate("start-date");
+                Date endDate = resultSet.getDate("end-date");
+                int amount = resultSet.getInt("amount");
+                double price = resultSet.getDouble("price");
+                String image = resultSet.getString("image");
+                coupon = new Coupon(id, company_id, Category.values()[category_id], title, description, startDate, endDate, amount, price, image);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return coupon;
     }
 
     @Override
     public void addCouponPurchace(int customerID, int couponID) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("INSERT INTO  coupons.CUSTOMERS_VS_CUPONS (customer_id,cupon_id ) " +
+                        "VALUES (?,?)")) {
+            preparedStatement.setInt(1, customerID);
+            preparedStatement.setInt(2, couponID);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public void deleteCouponPurchace(int customerID, int couponID) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("DELETE FROM  coupons.CUSTOMERS_VS_CUPONS where customer_id = ? and cupon_id = ? ")) {
+            preparedStatement.setInt(1, customerID);
+            preparedStatement.setInt(2, couponID);
+
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public ArrayList<Coupon> getCompanyCoupons(int companyID) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> companyCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT id from  coupons.COUPON where company_id = ?")) {
+            preparedStatement.setInt(1, companyID);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Coupon coupon = null;
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int category_id = resultSet.getInt("category_id");
+                String title = resultSet.getString("title");
+                String description = resultSet.getString("description");
+                Date startDate = resultSet.getDate("start-date");
+                Date endDate = resultSet.getDate("end-date");
+                int amount = resultSet.getInt("amount");
+                double price = resultSet.getDouble("price");
+                String image = resultSet.getString("image");
+                Coupon coupon1 = new Coupon(id, companyID, Category.values()[category_id], title, description, startDate, endDate, amount, price, image);
+                companyCoupons.add(coupon1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return companyCoupons;
     }
 
 
     @Override
     public void deleteCustomerCouponPurchaces(int customerID) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("DELETE FROM  coupon.CUSTOMERS_VS_CUPONS where customer_id = ?")) {
+            preparedStatement.setInt(1, customerID);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public boolean isCouponPurchaceExists(int customerID, int couponID) {
-        return false;
+        boolean isCouponPurchaceExists = false;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select count(*) from coupons.CUSTOMERS_VS_CUPONS where customer_id = ? and cupon_id = ?")) {
+            preparedStatement.setInt(1, customerID);
+            preparedStatement.setInt(2, couponID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                isCouponPurchaceExists = id > 0;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return isCouponPurchaceExists;
     }
 
     @Override
     public ArrayList<Coupon> getCompanyCouponsByCategory(int companyID, Category category) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> companyCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT coupon.* from  coupons.COUPON coupon  where coupon.company_id = ? and category_id = ?")) {
+            preparedStatement.setInt(1, companyID);
+            preparedStatement.setInt(2, category.ordinal());
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            buildCoupon(companyCoupons, resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return companyCoupons;
     }
 
     @Override
     public ArrayList<Coupon> getCompanyCouponsByMaxPrice(int companyID, double price) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> companyCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT coupon.* from  coupons.COUPON coupon  where coupon.company_id = ? and price < ?")) {
+            preparedStatement.setInt(1, companyID);
+            preparedStatement.setDouble(2, price);
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            buildCoupon(companyCoupons, resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public void deleteCouponPurchaces(int couponID) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("DELETE FROM  coupon.CUSTOMERS_VS_CUPONS where cupon_id = ?")) {
+            preparedStatement.setInt(1, couponID);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public ArrayList<Coupon> getCustmerCoupons(int customerID) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> custmerCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT coupon.* from  coupons.COUPON coupon join CUSTOMERS_VS_CUPONS cvc on coupon.id = cvc.customer_id where cvc.customer_id = ?")) {
+            preparedStatement.setInt(1, customerID);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Coupon coupon = null;
+
+            buildCoupon(custmerCoupons, resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return custmerCoupons;
+    }
+
+    private void buildCoupon(ArrayList<Coupon> custmerCoupons, ResultSet resultSet) throws SQLException {
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            int company_id = resultSet.getInt("company_id");
+            int amount = resultSet.getInt("amount");
+            double price = resultSet.getDouble("amount");
+
+
+            int category_id = resultSet.getInt("category_id");
+            String title = resultSet.getString("title");
+            String image = resultSet.getString("image");
+            String description = resultSet.getString("description");
+            Date start_date = resultSet.getDate("start_date");
+            Date end_date = resultSet.getDate("end_date");
+
+            Coupon coupon1 = new Coupon(id, company_id, Category.values()[category_id], title, description, start_date, end_date, amount, price, image);
+            custmerCoupons.add(coupon1);
+        }
     }
 
     @Override
-    public ArrayList<Coupon> getCustomerCouponsByCategory(int companyID, Category category) {
-        return null;
+    public ArrayList<Coupon> getCustomerCouponsByCategory(int customerID, Category category) {
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> custmerCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT coupon.* from  coupons.COUPON coupon join CUSTOMERS_VS_CUPONS cvc on coupon.id = cvc.customer_id where cvc.customer_id = ? and coupon.category_id = ?")) {
+            preparedStatement.setInt(1, customerID);
+            preparedStatement.setInt(2, category.ordinal());
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Coupon coupon = null;
+
+            buildCoupon(custmerCoupons, resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return custmerCoupons;
     }
 
     @Override
-    public ArrayList<Coupon> getCustomerCouponsByMaxPrice(int companyID, double price) {
-        return null;
+    public ArrayList<Coupon> getCustomerCouponsByMaxPrice(int customerID, double price) {
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        ArrayList<Coupon> custmerCoupons = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("SELECT coupon.* from  coupons.COUPON coupon join CUSTOMERS_VS_CUPONS cvc on coupon.id = cvc.customer_id where cvc.customer_id = ? and coupon.price < ?")) {
+            preparedStatement.setInt(1, customerID);
+            preparedStatement.setDouble(2, price);
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Coupon coupon = null;
+
+            buildCoupon(custmerCoupons, resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return custmerCoupons;
     }
 
     @Override
@@ -140,6 +452,9 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
         }
         return expiredCoupons;
     }
