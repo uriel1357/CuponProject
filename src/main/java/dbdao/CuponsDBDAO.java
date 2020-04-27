@@ -1,7 +1,8 @@
-package dao;
+package dbdao;
 
 import beans.Category;
 import beans.Coupon;
+import dao.CuponsDAO;
 import pool.ConnetionPool;
 
 import java.sql.*;
@@ -47,7 +48,28 @@ public class CuponsDBDAO implements CuponsDAO {
 
     @Override
     public void updateCoupon(Coupon coupon) {
+        ConnetionPool pool = connetionPool.getInstance();
 
+        Connection connection = pool.getConnection();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement
+                ("UPDATE   coupons.COUPON set category_id =? , title = ?,description = ? , start_date= ?, end_date= ?, amount=?, price=?, image=? ")) {
+            preparedStatement.setInt(1, coupon.getCompanyID());
+            preparedStatement.setString(2, coupon.getTitle());
+            preparedStatement.setString(3, coupon.getDescription());
+            preparedStatement.setDate(4, coupon.getStartDate());
+            preparedStatement.setDate(5, coupon.getEndDate());
+            preparedStatement.setInt(6, coupon.getAmount());
+            preparedStatement.setDouble(7, coupon.getPrice());
+            preparedStatement.setString(8, coupon.getImage());
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
     }
 
     @Override
@@ -309,6 +331,7 @@ public class CuponsDBDAO implements CuponsDAO {
         finally {
             this.connetionPool.returnConnection(connection);
         }
+        return companyCoupons;
     }
 
     @Override

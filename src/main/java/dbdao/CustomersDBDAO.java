@@ -1,6 +1,5 @@
 package dbdao;
 
-import beans.Coupon;
 import beans.Customer;
 import dao.CustomersDAO;
 import pool.ConnetionPool;
@@ -10,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomersDBDAO implements CustomersDAO {
 
@@ -41,31 +39,17 @@ public class CustomersDBDAO implements CustomersDAO {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                customer =  new Customer(id, firstName,lastName,email,password,null);
+                customer = new Customer(id, firstName, lastName, email, password, null);
                 customers.add(customer);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return customers;
     }
-
-    private int id;
-
-    private String firstName;
-
-    private String lastName;
-
-    private String email;
-
-    private String password;
-
-    private List<Coupon> coupons;
-
 
     @Override
     public Customer getOneCustomer(int customerID) {
@@ -76,25 +60,24 @@ public class CustomersDBDAO implements CustomersDAO {
         Customer customer = null;
 
         try (PreparedStatement preparedStatement = connection.prepareStatement("select * from coupons.CUSTOMERS where id = ?")) {
-            preparedStatement.setInt(1 , customerID);
+            preparedStatement.setInt(1, customerID);
             ResultSet resultSet = preparedStatement.executeQuery();
 
 
             while (resultSet.next()) {
 
-                int id= resultSet.getInt("id");
-                String firstName= resultSet.getString("firstName");
-                String lastName= resultSet.getString("lastName");
+                int id = resultSet.getInt("id");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
                 String password = resultSet.getString("password");
-                String email= resultSet.getString("email");
+                String email = resultSet.getString("email");
 
-                customer =  new Customer(id,firstName,lastName,email,password,null);
+                customer = new Customer(id, firstName, lastName, email, password, null);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return customer;
@@ -124,8 +107,7 @@ public class CustomersDBDAO implements CustomersDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
 
@@ -133,28 +115,27 @@ public class CustomersDBDAO implements CustomersDAO {
 
     @Override
     public boolean isCustomerExists(String email, String password) {
-            boolean isCustomerExists = false;
-            ConnetionPool pool = connetionPool.getInstance();
+        boolean isCustomerExists = false;
+        ConnetionPool pool = connetionPool.getInstance();
 
-            Connection connection = pool.getConnection();
+        Connection connection = pool.getConnection();
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement("select count(*) from coupons.CUSTOMERS where email = ? and password = ?")) {
-                preparedStatement.setString(1, email);
-                preparedStatement.setString(2, password);
-                ResultSet resultSet = preparedStatement.executeQuery();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select count(*) from coupons.CUSTOMERS where email = ? and password = ?")) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-                while (resultSet.next()) {
-                    int id = resultSet.getInt(1);
-                    isCustomerExists = id > 0;
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                isCustomerExists = id > 0;
             }
-            finally {
-                this.connetionPool.returnConnection(connection);
-            }
-            return isCustomerExists;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return isCustomerExists;
     }
 
     @Override
@@ -176,8 +157,7 @@ public class CustomersDBDAO implements CustomersDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -191,23 +171,22 @@ public class CustomersDBDAO implements CustomersDAO {
         Customer customer = null;
 
         try (PreparedStatement preparedStatement = connection.prepareStatement("select * from coupons.CUSTOMERS where email = ?")) {
-            preparedStatement.setString(1 , email);
+            preparedStatement.setString(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();
 
 
             while (resultSet.next()) {
 
-                int id= resultSet.getInt("id");
-                String firstName= resultSet.getString("firstName");
-                String lastName= resultSet.getString("lastName");
+                int id = resultSet.getInt("id");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
                 String password = resultSet.getString("password");
-                customer =  new Customer(id,firstName,lastName,email,password,null);
+                customer = new Customer(id, firstName, lastName, email, password, null);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return customer;

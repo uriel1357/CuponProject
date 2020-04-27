@@ -3,6 +3,7 @@ package client;
 import beans.Category;
 import beans.Coupon;
 import beans.Customer;
+import dbdao.CuponsDBDAO;
 import dbdao.CustomersDBDAO;
 import exceptions.CouponActionllegalException;
 
@@ -15,6 +16,7 @@ public class CustomerFacade extends ClientFacade{
 
     public CustomerFacade (){
         this.customersDAO = new CustomersDBDAO();
+        this.cuponsDAO = new CuponsDBDAO();
     }
 
     @Override

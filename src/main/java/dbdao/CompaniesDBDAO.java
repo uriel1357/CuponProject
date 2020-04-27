@@ -2,6 +2,7 @@ package dbdao;
 
 
 import beans.Company;
+import beans.Coupon;
 import dao.CompaniesDAO;
 import pool.ConnetionPool;
 
@@ -15,9 +16,11 @@ import java.util.ArrayList;
 public class CompaniesDBDAO implements CompaniesDAO {
 
     private ConnetionPool connetionPool;
+    private CuponsDBDAO cuponsDBDAO;
 
     public CompaniesDBDAO() {
         connetionPool = ConnetionPool.getInstance();
+        this.cuponsDBDAO = new CuponsDBDAO();
     }
 
 
@@ -69,6 +72,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         finally {
             this.connetionPool.returnConnection(connection);
         }
+
         return company;
     }
 
@@ -164,6 +168,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
                 String password = resultSet.getString("password");
                 company = new Company(id, name,email,password,null);
             }
+            company.setCoupons(this.cuponsDBDAO.getCompanyCoupons(companyID));
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -177,6 +182,35 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
     @Override
     public Company getOneCompany(String email, String password) {
-        return null;
+        ConnetionPool pool = connetionPool.getInstance();
+
+        Connection connection = pool.getConnection();
+        Company company = null;
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from coupons.COMPANIES where email =? and password = ?")) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email1 = resultSet.getString("email");
+                String password1 = resultSet.getString("password");
+                company = new Company(id, name,email1,password1,null);
+            }
+            company.setCoupons(this.cuponsDBDAO.getCompanyCoupons(company.getId()));
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            this.connetionPool.returnConnection(connection);
+        }
+        return company;
     }
 }

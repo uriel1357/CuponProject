@@ -57,7 +57,7 @@ public class Test {
 
             //
             CustomerFacade customerFacade = (CustomerFacade)LoginManager.getInstance().login("email@gmail.com", "pass", ClientType.CUSTOMER);
-            customerFacade.getCustomerDetails();
+            System.out.println(customerFacade.getCustomerDetails());
             ArrayList<Coupon> customerMaxPriceCoupons = customerFacade.getCustomerCoupons(1d);
             ArrayList<Coupon> customerCategoryCoupons = customerFacade.getCustomerCoupons(Category.VACATION);
             ArrayList<Coupon> customerCoupons = customerFacade.getCustomerCoupons();

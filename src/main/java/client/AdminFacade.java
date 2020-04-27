@@ -3,7 +3,7 @@ package client;
 import beans.Company;
 import beans.Coupon;
 import beans.Customer;
-import dao.CuponsDBDAO;
+import dbdao.CuponsDBDAO;
 import dbdao.CompaniesDBDAO;
 import dbdao.CustomersDBDAO;
 import exceptions.*;
@@ -33,6 +33,9 @@ public class AdminFacade extends ClientFacade{
             throw new CompanyAlreadyExistsException("Company with email and password already Exists" + company.getEmail()+ ","+ company.getPassword() );
         }
         this.companiesDAO.addCompany(company);
+        for(Coupon coupon : company.getCoupons()){
+            this.cuponsDAO.addCupon(coupon);
+        }
     }
 
     public void updateCompany(Company company) throws CompanyNotExistsException, CompanyUpdateIllegalException{

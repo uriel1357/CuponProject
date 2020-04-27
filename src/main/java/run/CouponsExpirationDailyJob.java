@@ -2,7 +2,7 @@ package run;
 
 import beans.Coupon;
 import dao.CuponsDAO;
-import dao.CuponsDBDAO;
+import dbdao.CuponsDBDAO;
 
 import java.util.ArrayList;
 import java.sql.Date;
