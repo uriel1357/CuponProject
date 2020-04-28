@@ -45,7 +45,6 @@ public class Coupon {
     }
 
 
-
     public int getId() {
         return id;
     }

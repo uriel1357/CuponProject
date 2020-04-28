@@ -1,15 +1,12 @@
 package dao;
 
 import beans.Company;
-import exceptions.AlreadyExistsException;
-import exceptions.NotExistsException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface CompaniesDAO {
 
-    Boolean isCompanyExists (String email, String password);
+    Boolean isCompanyExists(String email, String password);
 
     Company addCompany(Company company);
 

@@ -2,7 +2,6 @@ package dbdao;
 
 
 import beans.Company;
-import beans.Coupon;
 import dao.CompaniesDAO;
 import pool.ConnetionPool;
 
@@ -43,8 +42,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return isCompanyExists;
@@ -68,8 +66,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
 
@@ -91,8 +88,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return company;
@@ -112,8 +108,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -135,14 +130,13 @@ public class CompaniesDBDAO implements CompaniesDAO {
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                company =  new Company(id, name,email,password,null);
+                company = new Company(id, name, email, password, null);
                 companies.add(company);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return companies;
@@ -166,14 +160,13 @@ public class CompaniesDBDAO implements CompaniesDAO {
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                company = new Company(id, name,email,password,null);
+                company = new Company(id, name, email, password, null);
             }
             company.setCoupons(this.cuponsDBDAO.getCompanyCoupons(companyID));
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return company;
@@ -200,15 +193,14 @@ public class CompaniesDBDAO implements CompaniesDAO {
                 String name = resultSet.getString("name");
                 String email1 = resultSet.getString("email");
                 String password1 = resultSet.getString("password");
-                company = new Company(id, name,email1,password1,null);
+                company = new Company(id, name, email1, password1, null);
             }
             company.setCoupons(this.cuponsDBDAO.getCompanyCoupons(company.getId()));
 
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return company;

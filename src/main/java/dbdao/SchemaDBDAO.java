@@ -1,17 +1,12 @@
 package dbdao;
 
 
-import beans.Company;
-import beans.Customer;
-import dao.CompaniesDAO;
 import dao.SchemaDAO;
 import pool.ConnetionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 public class SchemaDBDAO implements SchemaDAO {
@@ -29,13 +24,11 @@ public class SchemaDBDAO implements SchemaDAO {
         Connection connection = pool.getConnection();
         try (PreparedStatement preparedStatement = connection.prepareStatement("drop table coupons.COMPANIES;\n" +
                 "DROP TABLE IF EXISTS coupons.CUSTOMERS"
-               )) {
-           preparedStatement.execute();
+        )) {
+            preparedStatement.execute();
 
 
-            }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

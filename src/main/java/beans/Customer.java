@@ -5,7 +5,6 @@ import java.util.List;
 public class Customer {
 
 
-
     private int id;
 
     private String firstName;
@@ -17,7 +16,6 @@ public class Customer {
     private String password;
 
     private List<Coupon> coupons;
-
 
 
     public Customer(int id, String firstName, String lastName, String email, String password,

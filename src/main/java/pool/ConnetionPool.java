@@ -10,10 +10,9 @@ import java.util.stream.IntStream;
 
 public class ConnetionPool {
 
-    private Set<Connection> connections;
-
     private static ConnetionPool instance = null;
     private final int MAX_CONNECTION = 15;
+    private Set<Connection> connections;
 
     private ConnetionPool() {
         connections = new HashSet<Connection>();
@@ -26,6 +25,13 @@ public class ConnetionPool {
                 e.printStackTrace();
             }
         }));
+    }
+
+    public static synchronized ConnetionPool getInstance() {
+        if (instance == null) {
+            instance = new ConnetionPool();
+        }
+        return instance;
     }
 
     public synchronized Connection getConnection() {
@@ -72,13 +78,6 @@ public class ConnetionPool {
                 }
             }
         }
-    }
-
-    public static synchronized ConnetionPool getInstance() {
-        if (instance == null) {
-            instance = new ConnetionPool();
-        }
-        return instance;
     }
 
 

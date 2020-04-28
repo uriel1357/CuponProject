@@ -3,9 +3,8 @@ package dao;
 import beans.Category;
 import beans.Coupon;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public interface CuponsDAO {
 

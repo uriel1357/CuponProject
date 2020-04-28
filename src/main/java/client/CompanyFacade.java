@@ -3,6 +3,8 @@ package client;
 import beans.Category;
 import beans.Company;
 import beans.Coupon;
+import dbdao.CompaniesDBDAO;
+import dbdao.CuponsDBDAO;
 import exceptions.CouponActionllegalException;
 
 import java.util.ArrayList;
@@ -13,12 +15,14 @@ public class CompanyFacade extends ClientFacade {
 
 
     public CompanyFacade() {
+        this.companiesDAO = new CompaniesDBDAO();
+        this.cuponsDAO = new CuponsDBDAO();
     }
 
     @Override
     public boolean login(String email, String password) {
         boolean isCompanyExists = this.companiesDAO.isCompanyExists(email, password);
-        if(isCompanyExists){
+        if (isCompanyExists) {
             this.companyID = this.companiesDAO.getOneCompany(email, password).getId();
         }
         return isCompanyExists;
@@ -26,8 +30,8 @@ public class CompanyFacade extends ClientFacade {
 
     public void addCoupon(Coupon coupon) throws CouponActionllegalException {
         ArrayList<Coupon> companyCoupons = this.cuponsDAO.getCompanyCoupons(coupon.getCompanyID());
-        for(Coupon coupon1 : companyCoupons){
-            if(coupon1.getTitle().equals(coupon.getTitle())){
+        for (Coupon coupon1 : companyCoupons) {
+            if (coupon1.getTitle().equals(coupon.getTitle())) {
                 throw new CouponActionllegalException("Cant add coupon with the same title to the same company");
             }
         }
@@ -37,7 +41,7 @@ public class CompanyFacade extends ClientFacade {
 
     public void updateCoupon(Coupon coupon) throws CouponActionllegalException {
         Coupon coupon1 = this.cuponsDAO.getOneCoupon(coupon.getId());
-        if(coupon1 == null || coupon1.getCompanyID() != coupon.getCompanyID()){
+        if (coupon1 == null || coupon1.getCompanyID() != coupon.getCompanyID()) {
             throw new CouponActionllegalException("Cant update the id or company id of the coupon");
         }
         this.cuponsDAO.updateCoupon(coupon);

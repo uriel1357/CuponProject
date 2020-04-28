@@ -3,17 +3,44 @@
   <component name="ChangeListManager">
     <list default="true" id="69be95a3-28b8-4a68-9e22-4c8277f9b674" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Coupon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/AdminFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AdminFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/CompanyFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/CompanyFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/CustomerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/CustomerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CuponsDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CompaniesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CompaniesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CuponsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CuponsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dbdao/SchemaDBDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbdao/SchemaDBDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/AlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/AlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ClientInvalidCredentialsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ClientInvalidCredentialsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CompanyAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CompanyAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CompanyNotExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CompanyNotExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CompanyUpdateIllegalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CompanyUpdateIllegalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CouponActionllegalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CouponActionllegalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CustomerAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CustomerAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CustomerUpdateIllegalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CustomerUpdateIllegalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/NotExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/NotExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pool/ConnetionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/ConnetionPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/Coupon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Coupon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AdminFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AdminFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/CompanyFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/CompanyFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/CustomerFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/CustomerFacade.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dbdao/CompaniesDBDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbdao/CompaniesDBDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dbdao/CustomersDBDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbdao/CustomersDBDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pool/ConnetionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pool/ConnetionPool.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/run/CouponsExpirationDailyJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/run/CouponsExpirationDailyJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/run/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/run/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/run/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/run/Test.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -77,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2856">
-              <caret line="204" column="81" selection-start-line="204" selection-start-column="81" selection-end-line="204" selection-end-column="81" />
+            <state relative-caret-position="452">
+              <caret line="93" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,10 +116,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-887">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="316">
+              <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#403#404#0" expanded="true" />
+                <element signature="e#462#463#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,24 +139,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="171">
+              <caret line="301" selection-start-line="301" selection-end-line="301" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#updateCoupon#0;class#CuponsDBDAO#0" />
-                <element signature="method#deleteCoupon#0;class#CuponsDBDAO#0" />
                 <element signature="method#getAllCoupons#0;class#CuponsDBDAO#0" />
-                <element signature="method#getOneCoupon#0;class#CuponsDBDAO#0" />
-                <element signature="method#addCouponPurchace#0;class#CuponsDBDAO#0" />
                 <element signature="method#deleteCouponPurchace#0;class#CuponsDBDAO#0" />
-                <element signature="method#getCompanyCoupons#0;class#CuponsDBDAO#0" />
                 <element signature="method#deleteCustomerCouponPurchaces#0;class#CuponsDBDAO#0" />
                 <element signature="method#isCouponPurchaceExists#0;class#CuponsDBDAO#0" />
-                <element signature="method#getCompanyCouponsByCategory#0;class#CuponsDBDAO#0" />
-                <element signature="method#getCompanyCouponsByMaxPrice#0;class#CuponsDBDAO#0" />
-                <element signature="method#deleteCouponPurchaces#0;class#CuponsDBDAO#0" />
-                <element signature="method#getCustmerCoupons#0;class#CuponsDBDAO#0" />
-                <element signature="method#buildCoupon#0;class#CuponsDBDAO#0" />
                 <element signature="method#getCustomerCouponsByCategory#0;class#CuponsDBDAO#0" />
                 <element signature="method#getCustomerCouponsByMaxPrice#0;class#CuponsDBDAO#0" />
                 <element signature="method#getExpiredCoupons#0;class#CuponsDBDAO#0" />
@@ -140,16 +159,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/CustomersDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/beans/Category.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -157,8 +167,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/beans/Coupon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="30" column="21" selection-start-line="28" selection-start-column="3" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="180">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="e#952#953#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,10 +179,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/client/AdminFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="69" column="32" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="32" />
+            <state relative-caret-position="354">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2505#2506#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -178,20 +192,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/client/CompanyFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+            <state relative-caret-position="452">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#1670#1671#0" expanded="true" />
+                <element signature="e#1741#1742#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/client/CustomerFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+            <state relative-caret-position="320">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
-                <element signature="e#1965#1966#0" expanded="true" />
-                <element signature="e#2037#2038#0" expanded="true" />
+                <element signature="e#2103#2104#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -200,8 +217,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/run/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
+            <state relative-caret-position="452">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,11 +226,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/run/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="698" column="29" selection-start-line="698" selection-start-column="29" selection-end-line="698" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/manager/LoginManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="337">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -221,14 +256,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/beans/Company.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="316">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="e#717#718#0" expanded="true" />
                 <element signature="e#745#746#0" expanded="true" />
                 <element signature="e#787#788#0" expanded="true" />
                 <element signature="e#821#822#0" expanded="true" />
-                <element signature="e#856#857#0" expanded="true" />
                 <element signature="e#887#888#0" expanded="true" />
               </folding>
             </state>
@@ -238,20 +272,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+            <state relative-caret-position="82">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1374#1375#0" expanded="true" />
+                <element signature="e#1408#1409#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/SchemaDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -260,7 +287,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/SchemaDBDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -268,8 +295,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+            <state relative-caret-position="368">
+              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -277,8 +304,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pool/ConnetionPool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+            <state relative-caret-position="231">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -287,7 +314,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/CompaniesDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="21" column="25" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="25" />
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -295,10 +322,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/beans/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="51">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
-                <element signature="e#1029#1030#0" expanded="true" />
                 <element signature="e#1057#1058#0" expanded="true" />
               </folding>
             </state>
@@ -317,7 +343,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>companyID</find>
       <find>nexus</find>
       <find>connection</find>
       <find>INSERT INTO</find>
@@ -328,8 +353,11 @@
       <find>insert</find>
       <find>delete</find>
       <find>UPDATE</find>
-      <find>null</find>
       <find>company</find>
+      <find>companyID</find>
+      <find>null</find>
+      <find>job.run</find>
+      <find>start-da</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -338,27 +366,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/run/Tests.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/settings.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/run/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/pool/ConnetionPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CuponsDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/beans/Coupon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java" />
-        <option value="$PROJECT_DIR$/db.sql" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CompaniesDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/SchemaDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dbdao/SchemaDBDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CustomersDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/beans/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CuponsDBDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/AdminFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/run/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/CustomerFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/CompanyFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java" />
+        <option value="$PROJECT_DIR$/db.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/client/AdminFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/run/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/run/Main.java" />
       </list>
     </option>
   </component>
@@ -388,7 +416,7 @@
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="949" />
+    <option name="height" value="944" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -472,6 +500,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -540,20 +569,22 @@
       <workItem from="1587581497386" duration="23030000" />
       <workItem from="1587973191522" duration="276000" />
       <workItem from="1587978032615" duration="6627000" />
-      <workItem from="1587991005014" duration="7573000" />
+      <workItem from="1587991005014" duration="16046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64068000" />
+    <option name="totallyTimeSpent" value="72541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2802198" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32959184" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.327551" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32857144" />
@@ -564,7 +595,7 @@
       <window_info anchor="bottom" id="CheckStyle" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.37448978" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3265306" />
@@ -609,19 +640,19 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java</url>
-          <line>29</line>
+          <line>28</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java</url>
-          <line>54</line>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java</url>
-          <line>75</line>
+          <line>72</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -631,23 +662,53 @@
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/run/Test.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/run/Test.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/client/AdminFacade.java</url>
-          <line>78</line>
+          <line>105</line>
           <properties />
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java</url>
+          <line>301</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java</url>
+          <line>317</line>
+          <properties />
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/run/Test.java</url>
-          <line>60</line>
+          <line>53</line>
           <properties />
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/run/Test.java</url>
-          <line>59</line>
+          <url>file://$PROJECT_DIR$/src/main/java/run/Main.java</url>
+          <line>7</line>
           <properties />
-          <option name="timeStamp" value="31" />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -702,33 +763,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CuponsDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/SchemaDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -739,14 +773,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/SchemaDBDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pool/ConnetionPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
@@ -757,40 +784,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Coupon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="30" column="21" selection-start-line="28" selection-start-column="3" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/CustomersDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CompaniesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/manager/LoginManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#1057#1058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/client/CustomerFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#2103#2104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pool/ConnetionPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/client/CompanyFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#1670#1671#0" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Coupon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#952#953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="698" column="29" selection-start-line="698" selection-start-column="29" selection-end-line="698" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/client/AdminFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2505#2506#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CuponsDBDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="171">
+          <caret line="301" selection-start-line="301" selection-end-line="301" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#updateCoupon#0;class#CuponsDBDAO#0" />
-            <element signature="method#deleteCoupon#0;class#CuponsDBDAO#0" />
             <element signature="method#getAllCoupons#0;class#CuponsDBDAO#0" />
-            <element signature="method#getOneCoupon#0;class#CuponsDBDAO#0" />
-            <element signature="method#addCouponPurchace#0;class#CuponsDBDAO#0" />
             <element signature="method#deleteCouponPurchace#0;class#CuponsDBDAO#0" />
-            <element signature="method#getCompanyCoupons#0;class#CuponsDBDAO#0" />
             <element signature="method#deleteCustomerCouponPurchaces#0;class#CuponsDBDAO#0" />
             <element signature="method#isCouponPurchaceExists#0;class#CuponsDBDAO#0" />
-            <element signature="method#getCompanyCouponsByCategory#0;class#CuponsDBDAO#0" />
-            <element signature="method#getCompanyCouponsByMaxPrice#0;class#CuponsDBDAO#0" />
-            <element signature="method#deleteCouponPurchaces#0;class#CuponsDBDAO#0" />
-            <element signature="method#getCustmerCoupons#0;class#CuponsDBDAO#0" />
-            <element signature="method#buildCoupon#0;class#CuponsDBDAO#0" />
             <element signature="method#getCustomerCouponsByCategory#0;class#CuponsDBDAO#0" />
             <element signature="method#getCustomerCouponsByMaxPrice#0;class#CuponsDBDAO#0" />
             <element signature="method#getExpiredCoupons#0;class#CuponsDBDAO#0" />
@@ -798,108 +931,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Company.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#821#822#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/CompanyFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CompaniesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/AdminFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CompaniesDBDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2856">
-          <caret line="204" column="81" selection-start-line="204" selection-start-column="81" selection-end-line="204" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/beans/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/manager/LoginManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbdao/CustomersDBDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-887">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/run/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
+        <state relative-caret-position="452">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/CustomerFacade.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/run/CouponsExpirationDailyJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        <state relative-caret-position="82">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
-            <element signature="e#1965#1966#0" expanded="true" />
-            <element signature="e#2037#2038#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+            <element signature="e#1408#1409#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/run/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

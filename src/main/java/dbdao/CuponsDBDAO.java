@@ -23,11 +23,11 @@ public class CuponsDBDAO implements CuponsDAO {
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("INSERT INTO  coupons.COUPON (id,companyID,category,title,description,startDate,endDate,amount, price, image ) " +
+                ("INSERT INTO  coupons.COUPON (id,company_id,category_id,title,description,start_date,end_date,amount, price, image ) " +
                         "VALUES (?,?,?,?,?,?,?,?,?,?)")) {
             preparedStatement.setInt(1, coupon.getId());
             preparedStatement.setInt(2, coupon.getCompanyID());
-            preparedStatement.setString(3, coupon.getCategory().name());
+            preparedStatement.setInt(3, coupon.getCategory().ordinal());
             preparedStatement.setString(4, coupon.getTitle());
             preparedStatement.setString(5, coupon.getDescription());
             preparedStatement.setDate(6, coupon.getStartDate());
@@ -36,12 +36,11 @@ public class CuponsDBDAO implements CuponsDAO {
             preparedStatement.setDouble(9, coupon.getPrice());
             preparedStatement.setString(10, coupon.getImage());
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            preparedStatement.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -66,8 +65,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -79,15 +77,14 @@ public class CuponsDBDAO implements CuponsDAO {
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("DELETE FROM  coupon.COUPON where id = ?")) {
+                ("DELETE FROM  coupons.COUPON where id = ?")) {
             preparedStatement.setInt(1, couponID);
 
             preparedStatement.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -110,8 +107,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return coupons;
@@ -125,7 +121,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         Coupon coupon = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("SELECT id from  coupons.COUPON where id = ?")) {
+                ("SELECT * from  coupons.COUPON where id = ?")) {
             preparedStatement.setInt(1, couponID);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -137,8 +133,8 @@ public class CuponsDBDAO implements CuponsDAO {
                 int category_id = resultSet.getInt("category_id");
                 String title = resultSet.getString("title");
                 String description = resultSet.getString("description");
-                Date startDate = resultSet.getDate("start-date");
-                Date endDate = resultSet.getDate("end-date");
+                Date startDate = resultSet.getDate("start_date");
+                Date endDate = resultSet.getDate("end_date");
                 int amount = resultSet.getInt("amount");
                 double price = resultSet.getDouble("price");
                 String image = resultSet.getString("image");
@@ -147,8 +143,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return coupon;
@@ -170,8 +165,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -192,8 +186,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -206,7 +199,7 @@ public class CuponsDBDAO implements CuponsDAO {
         ArrayList<Coupon> companyCoupons = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("SELECT id from  coupons.COUPON where company_id = ?")) {
+                ("SELECT * from  coupons.COUPON where company_id = ?")) {
             preparedStatement.setInt(1, companyID);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -217,8 +210,8 @@ public class CuponsDBDAO implements CuponsDAO {
                 int category_id = resultSet.getInt("category_id");
                 String title = resultSet.getString("title");
                 String description = resultSet.getString("description");
-                Date startDate = resultSet.getDate("start-date");
-                Date endDate = resultSet.getDate("end-date");
+                Date startDate = resultSet.getDate("start_date");
+                Date endDate = resultSet.getDate("end_date");
                 int amount = resultSet.getInt("amount");
                 double price = resultSet.getDouble("price");
                 String image = resultSet.getString("image");
@@ -228,8 +221,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return companyCoupons;
@@ -250,8 +242,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -275,8 +266,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return isCouponPurchaceExists;
@@ -301,8 +291,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return companyCoupons;
@@ -316,7 +305,7 @@ public class CuponsDBDAO implements CuponsDAO {
         ArrayList<Coupon> companyCoupons = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("SELECT coupon.* from  coupons.COUPON coupon  where coupon.company_id = ? and price < ?")) {
+                ("SELECT coupon.* from  coupons.COUPON coupon  where coupon.company_id = ? and price <= ?")) {
             preparedStatement.setInt(1, companyID);
             preparedStatement.setDouble(2, price);
 
@@ -327,8 +316,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return companyCoupons;
@@ -341,15 +329,14 @@ public class CuponsDBDAO implements CuponsDAO {
         Connection connection = pool.getConnection();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("DELETE FROM  coupon.CUSTOMERS_VS_CUPONS where cupon_id = ?")) {
+                ("DELETE FROM  coupons.CUSTOMERS_VS_CUPONS where cupon_id = ?")) {
             preparedStatement.setInt(1, couponID);
 
             preparedStatement.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
     }
@@ -362,7 +349,7 @@ public class CuponsDBDAO implements CuponsDAO {
         ArrayList<Coupon> custmerCoupons = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement
-                ("SELECT coupon.* from  coupons.COUPON coupon join CUSTOMERS_VS_CUPONS cvc on coupon.id = cvc.customer_id where cvc.customer_id = ?")) {
+                ("SELECT * from  coupons.COUPON coupon join CUSTOMERS_VS_CUPONS cvc on coupon.id = cvc.customer_id where cvc.customer_id = ?")) {
             preparedStatement.setInt(1, customerID);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -372,8 +359,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return custmerCoupons;
@@ -419,8 +405,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return custmerCoupons;
@@ -446,8 +431,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return custmerCoupons;
@@ -475,8 +459,7 @@ public class CuponsDBDAO implements CuponsDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             this.connetionPool.returnConnection(connection);
         }
         return expiredCoupons;

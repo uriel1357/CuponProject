@@ -5,18 +5,11 @@ import java.util.List;
 public class Company {
 
 
-
-    private int id;
-
-    private String name;
-
-    private String email;
-
-    private String password;
-
     List<Coupon> coupons;
-
-
+    private int id;
+    private String name;
+    private String email;
+    private String password;
 
 
     public Company(int id, String name, String email, String password, List<Coupon> coupons) {
@@ -26,7 +19,6 @@ public class Company {
         this.password = password;
         this.coupons = coupons;
     }
-
 
 
     public int getId() {
